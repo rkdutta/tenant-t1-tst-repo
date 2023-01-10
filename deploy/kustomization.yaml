@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - ../configs/
 
-namespace: tenant-kla-tst
+namespace: tenant-t1-tst
 
 patchesStrategicMerge:
 - version-patch.yaml
