@@ -1,9 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
 - ../commons
-
 configMapGenerator:
 - behavior: merge
   envs:
@@ -95,94 +93,87 @@ configMapGenerator:
   name: endpoint-um
   options:
     disableNameSuffixHash: true
-- behavior: merge
+- behavior: create
   files:
-  - files/api-gateway-applications-config.yaml
-  name: api-gateway-applications-config
+  - values/api-gateway.yaml
+  name: api-gateway-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/api-gateway.yaml
-  name: api-gateway-static-config
+  - values/db-configurator.yaml
+  name: db-configurator-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/db-configurator.yaml
-  name: db-configurator-static-config
+  - values/db-initializer.yaml
+  name: db-initializer-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/db-initializer.yaml
-  name: db-initializer-static-config
+  - values/ewih-service.yaml
+  name: ewih-service-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/ewih-service.yaml
-  name: ewih-service-static-config
+  - values/globals.yaml
+  name: globals-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/globals.yaml
-  name: globals-static-config
+  - values/integration-server.yaml
+  name: integration-server-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/integration-server.yaml
-  name: integration-server-static-config
+  - values/kie-server.yaml
+  name: kie-server-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/kie-server.yaml
-  name: kie-server-static-config
+  - values/kie-workbench.yaml
+  name: kie-workbench-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/kie-workbench.yaml
-  name: kie-workbench-static-config
+  - values/ldap.yaml
+  name: ldap-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/ldap.yaml
-  name: ldap-static-config
+  - values/memcached.yaml
+  name: memcached-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/memcached.yaml
-  name: memcached-static-config
+  - values/my-webmethods-server.yaml
+  name: my-webmethods-server-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/my-webmethods-server.yaml
-  name: my-webmethods-server-static-config
+  - values/process-service.yaml
+  name: process-service-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/process-service.yaml
-  name: process-service-static-config
+  - values/universal-messaging-configurator.yaml
+  name: universal-messaging-configurator-specific-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/universal-messaging-configurator.yaml
-  name: universal-messaging-configurator-static-config
+  - values/universal-messaging.yaml
+  name: universal-messaging-specific-config
   options:
     disableNameSuffixHash: true
-- behavior: create
-  files:
-  - values.yaml=values/universal-messaging.yaml
-  name: universal-messaging-static-config
-  options:
-    disableNameSuffixHash: true
-

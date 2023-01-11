@@ -35,33 +35,33 @@ spec:
     name: kie-workbench-common-config
   #static config
   - kind: ConfigMap
-    name: globals-static-config
+    name: globals-specific-config
   - kind: ConfigMap
-    name: api-gateway-static-config
+    name: api-gateway-specific-config
   - kind: ConfigMap
-    name: db-configurator-static-config
+    name: db-configurator-specific-config
   - kind: ConfigMap
-    name: db-initializer-static-config
+    name: db-initializer-specific-config
   - kind: ConfigMap
-    name: universal-messaging-static-config
+    name: universal-messaging-specific-config
   - kind: ConfigMap
-    name: universal-messaging-configurator-static-config
+    name: universal-messaging-configurator-specific-config
   - kind: ConfigMap
-    name: integration-server-static-config
+    name: integration-server-specific-config
   - kind: ConfigMap
-    name: my-webmethods-server-static-config
+    name: my-webmethods-server-specific-config
   - kind: ConfigMap
-    name: ewih-service-static-config
+    name: ewih-service-specific-config
   - kind: ConfigMap
-    name: process-service-static-config
+    name: process-service-specific-config
   - kind: ConfigMap
-    name: ldap-static-config
+    name: ldap-specific-config
   - kind: ConfigMap
-    name: memcached-static-config
+    name: memcached-specific-config
   - kind: ConfigMap
-    name: kie-server-static-config
+    name: kie-server-specific-config
   - kind: ConfigMap
-    name: kie-workbench-static-config
+    name: kie-workbench-specific-config
   #promote config
   - kind: ConfigMap
     name: globals-promote-config

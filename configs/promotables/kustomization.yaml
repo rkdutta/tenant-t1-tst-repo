@@ -1,9 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
 - ../specifics
-
 configMapGenerator:
 - behavior: merge
   envs:
@@ -95,93 +93,87 @@ configMapGenerator:
   name: endpoint-um
   options:
     disableNameSuffixHash: true
-- behavior: merge
+- behavior: create
   files:
-  - files/api-gateway-applications-config.yaml
-  name: api-gateway-applications-config
+  - values/api-gateway.yaml
+  name: api-gateway-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/api-gateway.yaml
-  name: api-gateway-promote-config
+  - values/db-configurator.yaml
+  name: db-configurator-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/db-configurator.yaml
-  name: db-configurator-promote-config
+  - values/db-initializer.yaml
+  name: db-initializer-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/db-initializer.yaml
-  name: db-initializer-promote-config
+  - values/ewih-service.yaml
+  name: ewih-service-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/ewih-service.yaml
-  name: ewih-service-promote-config
+  - values/globals.yaml
+  name: globals-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/globals.yaml
-  name: globals-promote-config
+  - values/integration-server.yaml
+  name: integration-server-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/integration-server.yaml
-  name: integration-server-promote-config
+  - values/kie-server.yaml
+  name: kie-server-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/kie-server.yaml
-  name: kie-server-promote-config
+  - values/kie-workbench.yaml
+  name: kie-workbench-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/kie-workbench.yaml
-  name: kie-workbench-promote-config
+  - values/ldap.yaml
+  name: ldap-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/ldap.yaml
-  name: ldap-promote-config
+  - values/memcached.yaml
+  name: memcached-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/memcached.yaml
-  name: memcached-promote-config
+  - values/my-webmethods-server.yaml
+  name: my-webmethods-server-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/my-webmethods-server.yaml
-  name: my-webmethods-server-promote-config
+  - values/process-service.yaml
+  name: process-service-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/process-service.yaml
-  name: process-service-promote-config
+  - values/universal-messaging-configurator.yaml
+  name: universal-messaging-configurator-promotable-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/universal-messaging-configurator.yaml
-  name: universal-messaging-configurator-promote-config
-  options:
-    disableNameSuffixHash: true
-- behavior: create
-  files:
-  - values.yaml=values/universal-messaging.yaml
-  name: universal-messaging-promote-config
+  - values/universal-messaging.yaml
+  name: universal-messaging-promotable-config
   options:
     disableNameSuffixHash: true

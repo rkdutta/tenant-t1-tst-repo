@@ -1,6 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 configMapGenerator:
 - behavior: create
   envs:
@@ -94,91 +93,85 @@ configMapGenerator:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - files/api-gateway-applications-config.yaml
-  name: api-gateway-applications-config
-  options:
-    disableNameSuffixHash: true
-- behavior: create
-  files:
-  - values.yaml=values/api-gateway.yaml
+  - values/api-gateway.yaml
   name: api-gateway-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/db-configurator.yaml
+  - values/db-configurator.yaml
   name: db-configurator-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/db-initializer.yaml
+  - values/db-initializer.yaml
   name: db-initializer-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/ewih-service.yaml
+  - values/ewih-service.yaml
   name: ewih-service-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/globals.yaml
+  - values/globals.yaml
   name: globals-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/integration-server.yaml
+  - values/integration-server.yaml
   name: integration-server-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/kie-server.yaml
+  - values/kie-server.yaml
   name: kie-server-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/kie-workbench.yaml
+  - values/kie-workbench.yaml
   name: kie-workbench-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/ldap.yaml
+  - values/ldap.yaml
   name: ldap-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/memcached.yaml
+  - values/memcached.yaml
   name: memcached-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/my-webmethods-server.yaml
+  - values/my-webmethods-server.yaml
   name: my-webmethods-server-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/process-service.yaml
+  - values/process-service.yaml
   name: process-service-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/universal-messaging-configurator.yaml
+  - values/universal-messaging-configurator.yaml
   name: universal-messaging-configurator-common-config
   options:
     disableNameSuffixHash: true
 - behavior: create
   files:
-  - values.yaml=values/universal-messaging.yaml
+  - values/universal-messaging.yaml
   name: universal-messaging-common-config
   options:
     disableNameSuffixHash: true
