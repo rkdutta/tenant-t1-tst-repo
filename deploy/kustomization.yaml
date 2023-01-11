@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - ../base/
 
-namespace: tenant-t1-dev
+namespace: tenant-t1-tst
 
 patchesStrategicMerge:
 - version-patch.yaml
