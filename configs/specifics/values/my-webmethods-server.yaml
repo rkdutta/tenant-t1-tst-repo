@@ -1,0 +1,17 @@
+my-webmethods-server:
+  service:
+    port: 8585
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/whitelist-source-range: "11.22.33.44,55.66.77.88"
+    hosts:
+      - host: mws.t1-dev.myenv.myproduct.mycompany.nl
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              servicePort: 8585
+    tls:
+      - hosts:
+          - mws.t1-dev.myenv.myproduct.mycompany.nl
+        secretName: mws-tls

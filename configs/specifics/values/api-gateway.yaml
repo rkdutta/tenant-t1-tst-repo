@@ -1,0 +1,38 @@
+api-gateway:
+  envs:
+  - name: JVM_MEM
+    value: 5g
+  - name: ES_HOST
+    value: localhost
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/whitelist-source-range: "11.22.33.44,55.66.77.88"
+    hosts:
+      - host: apigw.t1-dev.myenv.myproduct.mycompany.nl
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              servicePort: 9072
+      - host: apigwis.t1-dev.myenv.myproduct.mycompany.nl
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              servicePort: 5555
+      - host: t1-dev.myenv.myproduct.mycompany.nl
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              servicePort: 5555
+    tls:
+      - hosts:
+          - apigw.t1-dev.myenv.myproduct.mycompany.nl
+        secretName: apigw-tls
+      - hosts:
+          - apigwis.t1-dev.myenv.myproduct.mycompany.nl
+        secretName: apigwis-tls
+      - hosts:
+          - t1-dev.myenv.myproduct.mycompany.nl
+        secretName: myproductdev-tls

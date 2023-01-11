@@ -1,0 +1,26 @@
+integration-server:
+  envs:
+    - name: DISABLED_PACKAGES
+      value: RI_Level_v121,RI_Level_v133,RI_Level_v143,RI_Level_v144,RI_Level_v152,RI_Level_v153
+    - name: WS_CONS_EWIHHTTP_HOST
+      value: t1-dev-ewih-service
+    - name: WS_CONS_EWIHHTTP_PORT
+      value: "9081"
+    - name: GV_CUSTOMBACKENDS_USEHTTPALIASES
+      value: "true"
+    - name: MWS_HOST
+      value: t1-dev-mws
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/whitelist-source-range: "11.22.33.44,55.66.77.88"
+    hosts:
+      - host: is.t1-dev.myenv.myproduct.mycompany.nl
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              servicePort: 5555
+    tls:
+      - hosts:
+          - is.t1-dev.myenv.myproduct.mycompany.nl
+        secretName: is-tls
